@@ -46,15 +46,11 @@ class PageProduit extends StatelessWidget{
               ),
             ),
           ),
-          body: Consumer<Inventaire>(
-            builder: (context, i, child) {
-              return GridView.extent(
-                children: i.produits.map((produit) {
-                  return ChangeNotifierProvider.value(value: produit, child: BoiteProduit(contextInventaire),);
-                }).toList(),
-                maxCrossAxisExtent: MediaQuery.of(context).size.width/2,
-              );
-            },
+          body: GridView.extent(
+            children: Provider.of<Inventaire>(context).produits.map((produit) {
+              return ChangeNotifierProvider.value(value: produit, child: BoiteProduit(contextInventaire),);
+            }).toList(),
+            maxCrossAxisExtent: MediaQuery.of(context).size.width/2,
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () => {
@@ -240,59 +236,6 @@ class BoiteProduit extends StatelessWidget{
             )
           ],
         ),
-        /*GridTile(
-          header: Container(
-            height: MediaQuery.of(context).size.height/4,
-            child: Consumer<Produit>(
-              builder: (context, produit, child) {
-                return Text(produit.nom, style: Theme.of(context).textTheme.headline3,);
-              },
-            ),
-          ),
-          child: FractionallySizedBox(
-            heightFactor: 0.5,
-            child: Consumer<Produit>(
-              builder: (context, produit, child){
-                return Text('Quantité : ${produit.quantite}', style: Theme.of(context).textTheme.headline4,);
-              },
-            ),
-          ),
-          footer: Container(
-            margin: EdgeInsets.all(10),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: IconButton(
-                    onPressed: () {
-                      p.quantite != 1 ? p.decrementer() : alertSupprimerProduit(context);
-                    },
-                    icon: Icon(Icons.remove),
-                  ),
-                ),
-                Expanded(
-                  child: IconButton(
-                    onPressed: () {
-                      p.incrementer();
-                    },
-                    icon: Icon(Icons.add),
-                  ),
-                ),
-                Expanded(
-                    child: Consumer<Produit>(
-                      builder: (context, value, child) {
-                        return IconButton(
-                          onPressed: () {
-                            alertChangerNomProduit(context);
-                          },
-                          icon: Icon(Icons.edit),
-                        );
-                      },
-                    )
-                ),
-              ],
-            ),
-          ),
-        ),*/
       ),
     );
   }

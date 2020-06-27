@@ -72,14 +72,10 @@ class PageInventaire extends StatelessWidget{
 class ListeInventaire extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Consumer<ModelListInventaire>(
-      builder: (context, value, child) {
-        return ListView(
-          children: value.listeInventaire.map((inventaire) {
-            return ChangeNotifierProvider<Inventaire>.value(value: inventaire, child: BoutonInventaire(),);
-          }).toList(),
-        );
-      },
+    return ListView(
+      children: Provider.of<ModelListInventaire>(context).listeInventaire.map((inventaire) {
+        return ChangeNotifierProvider<Inventaire>.value(value: inventaire, child: BoutonInventaire(),);
+      }).toList(),
     );
   }
 }
