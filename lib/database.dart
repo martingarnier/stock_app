@@ -48,7 +48,7 @@ class DBProvider{
       (await inventaires()).forEach((inventaire) async {
         Provider.of<ModelListInventaire>(context, listen: false).ajouter(inventaire);
         (await produits()).forEach((produit) {
-          if(produit.id_inventaire == inventaire.id_inventaire) inventaire.ajouter(produit);
+          if(produit.idInventaire == inventaire.idInventaire) inventaire.ajouter(produit);
         });
       });
 
@@ -121,7 +121,7 @@ class DBProvider{
         'inventaire',
         inventaire.toMap(),
         where: "id_inventaire = ?",
-        whereArgs: [inventaire.id_inventaire]
+        whereArgs: [inventaire.idInventaire]
     );
   }
 
@@ -168,7 +168,7 @@ class DBProvider{
         'produit',
         produit.toMap(),
         where: "id_produit = ?",
-        whereArgs: [produit.id_produit]
+        whereArgs: [produit.idProduit]
     );
   }
 

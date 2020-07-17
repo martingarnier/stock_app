@@ -4,17 +4,17 @@ import 'package:testapp/database.dart';
 
 class Produit extends ChangeNotifier {
 
-  int _id_produit;
-  int _id_inventaire;
+  int _idProduit;
+  int _idInventaire;
   String _nom;
   int _quantite;
 
-  int get id_produit => _id_produit;
-  int get id_inventaire => _id_inventaire;
+  int get idProduit => _idProduit;
+  int get idInventaire => _idInventaire;
   String get nom => _nom;
   int get quantite => _quantite;
 
-  Produit(this._id_produit, this._id_inventaire, this._nom, this._quantite);
+  Produit(this._idProduit, this._idInventaire, this._nom, this._quantite);
 
   void setNom(String s){
     _nom = s;
@@ -36,8 +36,8 @@ class Produit extends ChangeNotifier {
 
   Map<String, dynamic> toMap(){
     return {
-      'id_produit': _id_produit,
-      'id_inventaire': _id_inventaire,
+      'id_produit': _idProduit,
+      'id_inventaire': _idInventaire,
       'nom_produit': nom,
       'quantite': quantite
     };

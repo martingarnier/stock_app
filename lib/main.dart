@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:testapp/pages/page_inventaire.dart';
+import 'file:///D:/Games/FlutterApp/myapp/stock_app/lib/pages/page_inventaire/page_inventaire.dart';
 import 'package:testapp/models/produit.dart';
 import 'package:testapp/models/inventaire.dart';
 import 'package:testapp/database.dart';

@@ -18,7 +18,7 @@ class ModelListInventaire extends ChangeNotifier{
 
   void supprimer(Inventaire i){
     listeInventaire.remove(i);
-    DBProvider.db.supprimerInventaire(i.id_inventaire);
+    DBProvider.db.supprimerInventaire(i.idInventaire);
     notifyListeners();
   }
 
