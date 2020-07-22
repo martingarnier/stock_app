@@ -43,7 +43,7 @@ class DBProvider{
     );
   }
 
-  void remplirListe(BuildContext context) async {
+  Future<void> remplirListe(BuildContext context) async {
     if(!estRempli){
       (await inventaires()).forEach((inventaire) async {
         Provider.of<ModelListInventaire>(context, listen: false).ajouter(inventaire);
